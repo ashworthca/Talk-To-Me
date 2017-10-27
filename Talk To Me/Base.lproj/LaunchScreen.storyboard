@@ -30,7 +30,7 @@
                                 <color key="textColor" red="0.85480856895446777" green="0.85495573282241821" blue="0.85479927062988281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="we4-pa-AsM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="birdy.png" translatesAutoresizingMaskIntoConstraints="NO" id="we4-pa-AsM">
                                 <rect key="frame" x="114" y="165.33333333333337" width="186" height="186"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="we4-pa-AsM" secondAttribute="height" multiplier="1:1" id="x09-oB-Yzz"/>
@@ -54,6 +54,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon.png" width="750" height="750"/>
+        <image name="birdy.png" width="1024" height="1024"/>
     </resources>
 </document>

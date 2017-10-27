@@ -13,7 +13,11 @@
 		FC4A0FB91F9F78E000A7E174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4A0FB81F9F78E000A7E174 /* Assets.xcassets */; };
 		FC4A0FBC1F9F78E000A7E174 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4A0FBA1F9F78E000A7E174 /* LaunchScreen.storyboard */; };
 		FC4A0FCB1F9FD30C00A7E174 /* DidactGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC4A0FCA1F9FD2FF00A7E174 /* DidactGothic.ttf */; };
-		FCCA3BDC1FA0516500FE5D34 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FCCA3BDB1FA0516500FE5D34 /* Icon.png */; };
+		FC7E52E21FA3B59B00285630 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7E52E11FA3B59B00285630 /* Icon-72.png */; };
+		FC7E52E81FA3B61A00285630 /* Icon-52.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7E52E71FA3B61A00285630 /* Icon-52.png */; };
+		FC7E52EA1FA3B62700285630 /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7E52E91FA3B62700285630 /* Icon-114.png */; };
+		FC7E52EC1FA3B64700285630 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7E52EB1FA3B64700285630 /* Icon.png */; };
+		FC7E52F31FA3B6F700285630 /* birdy.png in Resources */ = {isa = PBXBuildFile; fileRef = FC7E52F21FA3B6F600285630 /* birdy.png */; };
 		FCCA3BDE1FA29DF300FE5D34 /* Mathlete-Bulky.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCCA3BDD1FA29DF300FE5D34 /* Mathlete-Bulky.otf */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +32,12 @@
 		FC4A0FC31F9F794B00A7E174 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		FC4A0FC51F9F931C00A7E174 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		FC4A0FCA1F9FD2FF00A7E174 /* DidactGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DidactGothic.ttf; sourceTree = "<group>"; };
-		FCCA3BDB1FA0516500FE5D34 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		FC7E52E11FA3B59B00285630 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		FC7E52E71FA3B61A00285630 /* Icon-52.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-52.png"; sourceTree = "<group>"; };
+		FC7E52E91FA3B62700285630 /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
+		FC7E52EB1FA3B64700285630 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../test/Icon.png; sourceTree = "<group>"; };
+		FC7E52F11FA3B68100285630 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../../test/Icon.png; sourceTree = "<group>"; };
+		FC7E52F21FA3B6F600285630 /* birdy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birdy.png; sourceTree = SOURCE_ROOT; };
 		FCCA3BDD1FA29DF300FE5D34 /* Mathlete-Bulky.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mathlete-Bulky.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,19 +71,40 @@
 		FC4A0FB01F9F78DF00A7E174 /* Talk To Me */ = {
 			isa = PBXGroup;
 			children = (
-				FCCA3BDB1FA0516500FE5D34 /* Icon.png */,
+				FC7E52F41FA3B73300285630 /* fonts */,
+				FC7E52EF1FA3B67300285630 /* images */,
+				FC7E52EB1FA3B64700285630 /* Icon.png */,
 				FC4A0FB11F9F78E000A7E174 /* AppDelegate.swift */,
 				FC4A0FB31F9F78E000A7E174 /* ViewController.swift */,
 				FC4A0FB51F9F78E000A7E174 /* Main.storyboard */,
 				FC4A0FB81F9F78E000A7E174 /* Assets.xcassets */,
-				FC4A0FC51F9F931C00A7E174 /* settings.png */,
-				FC4A0FC31F9F794B00A7E174 /* x.png */,
-				FC4A0FCA1F9FD2FF00A7E174 /* DidactGothic.ttf */,
-				FCCA3BDD1FA29DF300FE5D34 /* Mathlete-Bulky.otf */,
 				FC4A0FBA1F9F78E000A7E174 /* LaunchScreen.storyboard */,
 				FC4A0FBD1F9F78E000A7E174 /* Info.plist */,
 			);
 			path = "Talk To Me";
+			sourceTree = "<group>";
+		};
+		FC7E52EF1FA3B67300285630 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				FC7E52F21FA3B6F600285630 /* birdy.png */,
+				FC7E52F11FA3B68100285630 /* Icon.png */,
+				FC7E52E71FA3B61A00285630 /* Icon-52.png */,
+				FC7E52E11FA3B59B00285630 /* Icon-72.png */,
+				FC7E52E91FA3B62700285630 /* Icon-114.png */,
+				FC4A0FC51F9F931C00A7E174 /* settings.png */,
+				FC4A0FC31F9F794B00A7E174 /* x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		FC7E52F41FA3B73300285630 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FC4A0FCA1F9FD2FF00A7E174 /* DidactGothic.ttf */,
+				FCCA3BDD1FA29DF300FE5D34 /* Mathlete-Bulky.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +168,13 @@
 			files = (
 				FCCA3BDE1FA29DF300FE5D34 /* Mathlete-Bulky.otf in Resources */,
 				FC4A0FCB1F9FD30C00A7E174 /* DidactGothic.ttf in Resources */,
+				FC7E52EC1FA3B64700285630 /* Icon.png in Resources */,
 				FC4A0FBC1F9F78E000A7E174 /* LaunchScreen.storyboard in Resources */,
-				FCCA3BDC1FA0516500FE5D34 /* Icon.png in Resources */,
+				FC7E52E81FA3B61A00285630 /* Icon-52.png in Resources */,
 				FC4A0FB91F9F78E000A7E174 /* Assets.xcassets in Resources */,
+				FC7E52F31FA3B6F700285630 /* birdy.png in Resources */,
+				FC7E52E21FA3B59B00285630 /* Icon-72.png in Resources */,
+				FC7E52EA1FA3B62700285630 /* Icon-114.png in Resources */,
 				FC4A0FB71F9F78E000A7E174 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +323,8 @@
 		FC4A0FC11F9F78E000A7E174 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z77NNERYAG;
 				INFOPLIST_FILE = "Talk To Me/Info.plist";
@@ -304,6 +340,8 @@
 		FC4A0FC21F9F78E000A7E174 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z77NNERYAG;
 				INFOPLIST_FILE = "Talk To Me/Info.plist";
