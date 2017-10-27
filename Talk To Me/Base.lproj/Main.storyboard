@@ -1,24 +1,568 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="DidactGothic.ttf">
+            <string>DidactGothic-Regular</string>
+        </array>
+        <array key="Mathlete-Bulky.otf">
+            <string>Mathlete-Bulky</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Talk_To_Me" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zAC-18-zIv">
+                                <rect key="frame" x="5" y="5" width="470" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="kdZ-Si-BdE">
+                                        <rect key="frame" x="0.0" y="0.0" width="425" height="50"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="50"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                                        <connections>
+                                            <action selector="txtTouch:" destination="BYZ-38-t0r" eventType="touchDown" id="Rxt-f9-WDf"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcH-jS-2Yg">
+                                        <rect key="frame" x="425" y="0.0" width="45" height="50"/>
+                                        <state key="normal" backgroundImage="x.png"/>
+                                        <connections>
+                                            <action selector="btnDeleteWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O4h-qP-0ju"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="mcH-jS-2Yg" firstAttribute="width" secondItem="kdZ-Si-BdE" secondAttribute="height" multiplier="0.9" id="bWy-ih-05N"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RGL-MW-Glv">
+                                <rect key="frame" x="10" y="83" width="460" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0xx-Tp-l8W" userLabel="Q">
+                                        <rect key="frame" x="0.0" y="0.0" width="42.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="Q">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wiM-vl-3dT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEG-dV-NgX">
+                                        <rect key="frame" x="46.5" y="0.0" width="42.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="W">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yqy-Kr-JY9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tub-FC-YVN">
+                                        <rect key="frame" x="93" y="0.0" width="42" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="E">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yc5-4t-j5g"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7a2-Zj-MeI">
+                                        <rect key="frame" x="139" y="0.0" width="42.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="R">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YCh-Oj-xpK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAZ-VU-Okj">
+                                        <rect key="frame" x="185.5" y="0.0" width="42.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="T">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wAp-oH-lVc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1AL-rT-EN2">
+                                        <rect key="frame" x="232" y="0.0" width="42.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="Y">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3tM-Vx-efJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9T-LW-NJ1">
+                                        <rect key="frame" x="278.5" y="0.0" width="42.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="U">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZPk-r8-Ylp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnG-kz-jAa">
+                                        <rect key="frame" x="325" y="0.0" width="42" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="I">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XHn-Iu-r2r"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQZ-f4-73N">
+                                        <rect key="frame" x="371" y="0.0" width="42.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="O">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E10-iQ-onq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuz-IH-Ev3">
+                                        <rect key="frame" x="417.5" y="0.0" width="42.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="P">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W4X-bD-D2d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IjD-dq-evi">
+                                <rect key="frame" x="15" y="141" width="442" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGK-Nj-U44">
+                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="A">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gNF-7L-rli"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ET7-nw-vyt">
+                                        <rect key="frame" x="49.5" y="0.0" width="45" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="S">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vb0-EZ-pOK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wf-cw-OdO">
+                                        <rect key="frame" x="99.5" y="0.0" width="44.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="D">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="slP-VS-kzo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8n-Os-s4r">
+                                        <rect key="frame" x="149" y="0.0" width="44.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="F">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gqV-V8-fpA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beg-b4-xgG">
+                                        <rect key="frame" x="198.5" y="0.0" width="45" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="G">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="30H-Y0-ZLL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dde-Zb-QDC">
+                                        <rect key="frame" x="248.5" y="0.0" width="44.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="H">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RLu-GB-yNk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRK-Yi-Tpo">
+                                        <rect key="frame" x="298" y="0.0" width="44.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="J">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bs1-yq-QhS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evm-UC-4xr">
+                                        <rect key="frame" x="347.5" y="0.0" width="45" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="K">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2KM-6Y-LJ6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlf-Z3-EVg">
+                                        <rect key="frame" x="397.5" y="0.0" width="44.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="L">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T0m-4s-Kf9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ilf-ql-yYK">
+                                <rect key="frame" x="24" y="199" width="427" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLy-pD-xVJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="46.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="Z">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wBu-6H-2wH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xag-W3-l3p">
+                                        <rect key="frame" x="54.5" y="0.0" width="46.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PC2-n9-ScG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BOG-hS-hmF">
+                                        <rect key="frame" x="109" y="0.0" width="46" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="C">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IUT-6B-6oi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gz0-Mm-PIH">
+                                        <rect key="frame" x="163" y="0.0" width="46.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="V">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m8a-6N-xjy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fA5-50-YMA">
+                                        <rect key="frame" x="217.5" y="0.0" width="46.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="B">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bZv-IH-PjQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaK-ia-JXn">
+                                        <rect key="frame" x="272" y="0.0" width="46.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="N">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ekt-rj-VOp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUP-LH-d9C">
+                                        <rect key="frame" x="326.5" y="0.0" width="46" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title="M">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6ww-mr-UmE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="255-SJ-jk2">
+                                        <rect key="frame" x="380.5" y="0.0" width="46.5" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title=".">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CwI-iy-cTe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="4Yy-b9-IvQ">
+                                <rect key="frame" x="50" y="257" width="380" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eso-0U-o9n">
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
+                                        <state key="normal" title=" S P A C E ">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPressedWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vix-HM-mhx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYL-87-eeb">
+                                        <rect key="frame" x="330" y="0.0" width="50" height="48"/>
+                                        <color key="backgroundColor" red="0.93874037269999999" green="0.68106192350000005" blue="0.68267405029999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="50" id="FzO-mr-I7r"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="settings.png"/>
+                                        <connections>
+                                            <action selector="btnSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YzM-d9-k9L"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eso-0U-o9n" firstAttribute="height" secondItem="4Yy-b9-IvQ" secondAttribute="height" id="1pQ-nE-L6e"/>
+                                    <constraint firstItem="ZYL-87-eeb" firstAttribute="height" secondItem="eso-0U-o9n" secondAttribute="height" id="eyA-uH-J1H"/>
+                                </constraints>
+                            </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Y2-Kz-Pmo">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="eM6-Qe-tYf">
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk To Me - Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgT-ky-3eR">
+                                                <rect key="frame" x="53" y="0.0" width="374.5" height="42.5"/>
+                                                <fontDescription key="fontDescription" name="Mathlete-Bulky" family="Mathlete" pointSize="40"/>
+                                                <color key="textColor" red="0.36063647270202637" green="0.3647463321685791" blue="0.364704430103302" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ppn-r7-rNh" userLabel="SayStack View">
+                                                <rect key="frame" x="47.5" y="46.5" width="385" height="42"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Say letters when pressed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Yh-jC-mWw">
+                                                        <rect key="frame" x="0.0" y="5.5" width="293" height="30.5"/>
+                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="26"/>
+                                                        <color key="textColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Big-2R-Mvg">
+                                                        <rect key="frame" x="313" y="5.5" width="74" height="31"/>
+                                                        <connections>
+                                                            <action selector="switchSayLetterChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="hlP-uZ-YCd"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-ns-iAo" userLabel="PitchStack View">
+                                                <rect key="frame" x="53.5" y="92.5" width="373" height="42.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice Pitch:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qf6-e8-Yoq">
+                                                        <rect key="frame" x="0.0" y="6" width="137" height="30.5"/>
+                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="26"/>
+                                                        <color key="textColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q03-Cc-XsR">
+                                                        <rect key="frame" x="155" y="6" width="220" height="31"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="wb3-Gv-ZXV"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pgK-7v-rwI" userLabel="RateStack View">
+                                                <rect key="frame" x="56.5" y="139" width="367.5" height="42"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice Rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Egu-mR-dVq">
+                                                        <rect key="frame" x="0.0" y="6" width="131.5" height="30.5"/>
+                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="26"/>
+                                                        <color key="textColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mzs-GX-KKx">
+                                                        <rect key="frame" x="149.5" y="6" width="220" height="31"/>
+                                                        <connections>
+                                                            <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Lz5-DJ-mSz"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M6K-bZ-DeY" userLabel="PickStack View">
+                                                <rect key="frame" x="80" y="185" width="320" height="42.5"/>
+                                                <subviews>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0C5-Dc-fcc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
+                                                    </pickerView>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ob5-PD-UyU">
+                                                <rect key="frame" x="146.5" y="231.5" width="187" height="42"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCx-Pr-mbq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="42"/>
+                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="12"/>
+                                                        <state key="normal" title="defaults">
+                                                            <color key="titleColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnDefaults:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nus-xQ-yt4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdd-k5-HwI">
+                                                        <rect key="frame" x="43" y="0.0" width="144" height="42"/>
+                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="40"/>
+                                                        <state key="normal" title="  SAVE  ">
+                                                            <color key="titleColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="btnSaveSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xh7-m5-nTJ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOG-C8-SOV">
+                                                <rect key="frame" x="238.5" y="277.5" width="3.5" height="42.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.96511512990000003" green="0.76769977810000001" blue="0.76998323199999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Q03-Cc-XsR" firstAttribute="width" secondItem="eM6-Qe-tYf" secondAttribute="width" multiplier="0.45" id="HdQ-Lk-N5l"/>
+                                            <constraint firstItem="Mzs-GX-KKx" firstAttribute="width" secondItem="eM6-Qe-tYf" secondAttribute="width" multiplier="0.45" id="oi0-Lq-awO"/>
+                                            <constraint firstItem="Big-2R-Mvg" firstAttribute="width" secondItem="eM6-Qe-tYf" secondAttribute="width" multiplier="0.15" id="tGH-Eu-yTM"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96511512990000003" green="0.76769977810000001" blue="0.76998323199999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eM6-Qe-tYf" firstAttribute="centerX" secondItem="5Y2-Kz-Pmo" secondAttribute="centerX" id="Pdh-5s-0AA"/>
+                                    <constraint firstItem="eM6-Qe-tYf" firstAttribute="centerY" secondItem="5Y2-Kz-Pmo" secondAttribute="centerY" id="eHx-IZ-Keh"/>
+                                    <constraint firstItem="eM6-Qe-tYf" firstAttribute="height" secondItem="5Y2-Kz-Pmo" secondAttribute="height" id="rhU-cs-Ttn"/>
+                                    <constraint firstItem="eM6-Qe-tYf" firstAttribute="width" secondItem="5Y2-Kz-Pmo" secondAttribute="width" id="rih-iM-oFe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96511512990000003" green="0.76769977810000001" blue="0.76998323199999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IjD-dq-evi" secondAttribute="trailing" constant="23" id="4Xa-d7-9uu"/>
+                            <constraint firstItem="RGL-MW-Glv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="4jM-Wh-BZT"/>
+                            <constraint firstItem="5Y2-Kz-Pmo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8oz-2T-RS4"/>
+                            <constraint firstItem="IjD-dq-evi" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="ICN-PQ-XHz"/>
+                            <constraint firstItem="Ilf-ql-yYK" firstAttribute="top" secondItem="IjD-dq-evi" secondAttribute="bottom" constant="10" id="Mq5-CJ-oxm"/>
+                            <constraint firstItem="Ilf-ql-yYK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="O9U-2s-bWd"/>
+                            <constraint firstItem="4Yy-b9-IvQ" firstAttribute="top" secondItem="Ilf-ql-yYK" secondAttribute="bottom" constant="10" id="R9q-KH-Stm"/>
+                            <constraint firstItem="5Y2-Kz-Pmo" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="ShS-Y4-23F"/>
+                            <constraint firstItem="zAC-18-zIv" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15555" id="Tgn-Lt-vVQ"/>
+                            <constraint firstItem="zAC-18-zIv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="WA4-T6-S1a"/>
+                            <constraint firstItem="4Yy-b9-IvQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="ZOf-SB-Tea"/>
+                            <constraint firstAttribute="bottom" secondItem="5Y2-Kz-Pmo" secondAttribute="bottom" id="ZPp-LU-1Zc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Yy-b9-IvQ" secondAttribute="trailing" constant="50" id="aOe-cg-BvJ"/>
+                            <constraint firstItem="5Y2-Kz-Pmo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bL3-en-tan"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4Yy-b9-IvQ" secondAttribute="bottom" constant="15" id="cOC-YO-xuX"/>
+                            <constraint firstItem="5Y2-Kz-Pmo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="dhb-ok-Sbu"/>
+                            <constraint firstItem="Ilf-ql-yYK" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="eO5-ae-nth"/>
+                            <constraint firstItem="5Y2-Kz-Pmo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gKZ-Pc-Odd"/>
+                            <constraint firstItem="RGL-MW-Glv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="gUt-Dy-jhd"/>
+                            <constraint firstItem="IjD-dq-evi" firstAttribute="top" secondItem="RGL-MW-Glv" secondAttribute="bottom" constant="10" id="hal-MZ-na3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zAC-18-zIv" secondAttribute="trailing" constant="5" id="or3-P3-NFz"/>
+                            <constraint firstItem="5Y2-Kz-Pmo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="owC-Fp-EOi"/>
+                            <constraint firstItem="zAC-18-zIv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="t9B-VB-lTz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ilf-ql-yYK" secondAttribute="trailing" constant="29" id="vcU-GJ-k9J"/>
+                            <constraint firstItem="IjD-dq-evi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="vsP-RA-Rcg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RGL-MW-Glv" secondAttribute="trailing" constant="10" id="xu4-Bp-fex"/>
+                            <constraint firstItem="4Yy-b9-IvQ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="yeA-Ev-CLf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="btnDelete" destination="mcH-jS-2Yg" id="P2r-qY-aRX"/>
+                        <outlet property="pickerView" destination="0C5-Dc-fcc" id="NXf-xM-9rr"/>
+                        <outlet property="settingsView" destination="5Y2-Kz-Pmo" id="Csl-QC-CbO"/>
+                        <outlet property="sliderPitch" destination="Q03-Cc-XsR" id="uL2-eG-ypO"/>
+                        <outlet property="sliderRate" destination="Mzs-GX-KKx" id="bYF-lB-aNw"/>
+                        <outlet property="switchSayLetter" destination="Big-2R-Mvg" id="pti-6i-cG3"/>
+                        <outlet property="txtText" destination="kdZ-Si-BdE" id="gX9-ed-9GX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="195.703125" y="101.5625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings.png" width="200" height="200"/>
+        <image name="x.png" width="512" height="320"/>
+    </resources>
 </document>

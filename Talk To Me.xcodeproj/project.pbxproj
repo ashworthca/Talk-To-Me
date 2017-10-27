@@ -12,6 +12,9 @@
 		FC4A0FB71F9F78E000A7E174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4A0FB51F9F78E000A7E174 /* Main.storyboard */; };
 		FC4A0FB91F9F78E000A7E174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4A0FB81F9F78E000A7E174 /* Assets.xcassets */; };
 		FC4A0FBC1F9F78E000A7E174 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4A0FBA1F9F78E000A7E174 /* LaunchScreen.storyboard */; };
+		FC4A0FCB1F9FD30C00A7E174 /* DidactGothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC4A0FCA1F9FD2FF00A7E174 /* DidactGothic.ttf */; };
+		FCCA3BDC1FA0516500FE5D34 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FCCA3BDB1FA0516500FE5D34 /* Icon.png */; };
+		FCCA3BDE1FA29DF300FE5D34 /* Mathlete-Bulky.otf in Resources */ = {isa = PBXBuildFile; fileRef = FCCA3BDD1FA29DF300FE5D34 /* Mathlete-Bulky.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,11 @@
 		FC4A0FB81F9F78E000A7E174 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC4A0FBB1F9F78E000A7E174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC4A0FBD1F9F78E000A7E174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC4A0FC31F9F794B00A7E174 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
+		FC4A0FC51F9F931C00A7E174 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		FC4A0FCA1F9FD2FF00A7E174 /* DidactGothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DidactGothic.ttf; sourceTree = "<group>"; };
+		FCCA3BDB1FA0516500FE5D34 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		FCCA3BDD1FA29DF300FE5D34 /* Mathlete-Bulky.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mathlete-Bulky.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +62,15 @@
 		FC4A0FB01F9F78DF00A7E174 /* Talk To Me */ = {
 			isa = PBXGroup;
 			children = (
+				FCCA3BDB1FA0516500FE5D34 /* Icon.png */,
 				FC4A0FB11F9F78E000A7E174 /* AppDelegate.swift */,
 				FC4A0FB31F9F78E000A7E174 /* ViewController.swift */,
 				FC4A0FB51F9F78E000A7E174 /* Main.storyboard */,
 				FC4A0FB81F9F78E000A7E174 /* Assets.xcassets */,
+				FC4A0FC51F9F931C00A7E174 /* settings.png */,
+				FC4A0FC31F9F794B00A7E174 /* x.png */,
+				FC4A0FCA1F9FD2FF00A7E174 /* DidactGothic.ttf */,
+				FCCA3BDD1FA29DF300FE5D34 /* Mathlete-Bulky.otf */,
 				FC4A0FBA1F9F78E000A7E174 /* LaunchScreen.storyboard */,
 				FC4A0FBD1F9F78E000A7E174 /* Info.plist */,
 			);
@@ -123,7 +136,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCA3BDE1FA29DF300FE5D34 /* Mathlete-Bulky.otf in Resources */,
+				FC4A0FCB1F9FD30C00A7E174 /* DidactGothic.ttf in Resources */,
 				FC4A0FBC1F9F78E000A7E174 /* LaunchScreen.storyboard in Resources */,
+				FCCA3BDC1FA0516500FE5D34 /* Icon.png in Resources */,
 				FC4A0FB91F9F78E000A7E174 /* Assets.xcassets in Resources */,
 				FC4A0FB71F9F78E000A7E174 /* Main.storyboard in Resources */,
 			);
@@ -273,12 +289,11 @@
 		FC4A0FC11F9F78E000A7E174 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A8L73W6TNF;
+				DEVELOPMENT_TEAM = Z77NNERYAG;
 				INFOPLIST_FILE = "Talk To Me/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jedwards.Talk-To-Me";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jedwards.TalkToMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -288,12 +303,11 @@
 		FC4A0FC21F9F78E000A7E174 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A8L73W6TNF;
+				DEVELOPMENT_TEAM = Z77NNERYAG;
 				INFOPLIST_FILE = "Talk To Me/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jedwards.Talk-To-Me";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jedwards.TalkToMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
