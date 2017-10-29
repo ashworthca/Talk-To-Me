@@ -13,15 +13,28 @@ import QuartzCore
 var defaultSpeechRate = AVSpeechUtteranceDefaultSpeechRate
 var defaultSpeechPitch: Float = 1.0
 var defaultSpeechLang = 3
+var defaultColor = 1
 var speekLetter = true
+
 let arrOfLang = ["en-AU", "en-GB", "en-IE", "en-US", "en-ZA"]
 let arrOfNames = ["Karen", "Daniel", "moria", "Samantha", "Tessa"]
-let colorDarkGraySetting = UIColor(red: 0.36127328110000001, green: 0.36485024420000001, blue: 0.36485024420000001, alpha: 1.0)
+let arrOfColor = ["Pink", "White", "Blue"]
+
+let colorDarkGraySetting = UIColor(red: 0.36127328110000001, green: 0.36485024420000001, blue: 0.36485024420000001, alpha: 1)
+let colorLightPink = UIColor(red: 0.96511512990000003, green: 0.76769977810000001, blue: 0.76998323199999996, alpha: 1)
+let colorDarkPink = UIColor(red: 0.93874037269999999, green: 0.68106192350000005, blue:0.68267405029999995, alpha: 1)
+let colorLightGray = UIColor(red: 0.85480856895446777, green: 0.85495573282241821, blue: 0.85479927062988281, alpha: 1)
+let colorDarkBlue = UIColor(red: 0.37248749899936873, green: 0.58042447728129687, blue: 0.85495573280000003, alpha: 1)
+let colorLightBlue = UIColor(red: 0.71187124390742407, green: 0.87413166145081211, blue: 1, alpha: 1)
+    
+
+
+
 
 class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
-    
-
+    @IBOutlet var myButtons: [UIButton]!
+    @IBOutlet var myLables: [UILabel]!
     
     @IBOutlet weak var settingsView: UIView!
     @IBOutlet var txtText: UITextField!
@@ -30,6 +43,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     @IBOutlet weak var sliderPitch: UISlider!
     @IBOutlet weak var sliderRate: UISlider!
     @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var pickerViewColor: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +52,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         // setting up deletgates
         btnDelete.addTarget(self, action: #selector(multipleTap(_:event:)), for: UIControlEvents.touchDownRepeat)
         txtText.delegate = self
+        
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.showsSelectionIndicator = true
+        pickerViewColor.delegate = self
+        pickerViewColor.dataSource = self
+        pickerViewColor.showsSelectionIndicator = true
         
         sliderRate.minimumValue = 0.3
         sliderRate.maximumValue = 0.55
@@ -55,7 +73,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             UserDefaults.standard.set(defaultSpeechRate, forKey: "defaultSpeechRate")
             UserDefaults.standard.set(defaultSpeechPitch, forKey: "defaultSpeechPitch")
             UserDefaults.standard.set(defaultSpeechLang, forKey: "defaultSpeechLang")
-            //speekLetter = result
+            UserDefaults.standard.set(defaultColor, forKey: "defaultColor")
+            
         }
         else
         {
@@ -63,6 +82,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
             defaultSpeechPitch = UserDefaults.standard.value(forKey: "defaultSpeechPitch") as! Float
             defaultSpeechRate = UserDefaults.standard.value(forKey: "defaultSpeechRate") as! Float
             defaultSpeechLang = UserDefaults.standard.value(forKey: "defaultSpeechLang") as! Int
+            defaultColor = UserDefaults.standard.value(forKey: "defaultColor") as! Int
         }
         
         //Setting up the defauts:
@@ -79,9 +99,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         sliderRate.value = defaultSpeechRate
         
         pickerView.selectRow(defaultSpeechLang, inComponent: 0, animated: true)
+        pickerViewColor.selectRow(defaultColor, inComponent: 0, animated: true)
+        
+        //Set the colors
+        doColor()
         
     }
-
     
     @IBAction func btnPressed(button: UIButton) {
         let txt = (txtText.text ?? "")
@@ -117,12 +140,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         defaultSpeechRate = AVSpeechUtteranceDefaultSpeechRate
         defaultSpeechPitch = 1.0
         defaultSpeechLang = 3
+        defaultColor = 1
         speekLetter = true
         
         UserDefaults.standard.set(speekLetter, forKey: "speekLetter")
         UserDefaults.standard.set(defaultSpeechRate, forKey: "defaultSpeechRate")
         UserDefaults.standard.set(defaultSpeechPitch, forKey: "defaultSpeechPitch")
         UserDefaults.standard.set(defaultSpeechLang, forKey: "defaultSpeechLang")
+        UserDefaults.standard.set(defaultColor, forKey: "defaultColor")
         
         settingsView.isHidden = true
         
@@ -130,7 +155,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         sliderPitch.value = defaultSpeechPitch
         sliderRate.value = defaultSpeechRate
         pickerView.selectRow(defaultSpeechLang, inComponent: 0, animated: true)
+        pickerViewColor.selectRow(defaultColor, inComponent: 0, animated: true)
         
+        doColor()
     }
     
     @IBAction func btnSaveSettings(_ sender: Any) {
@@ -196,20 +223,99 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pv: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if(pv == pickerViewColor)
+        {
+            return arrOfColor.count
+        }
         return arrOfLang.count
     }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pv: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if(pv == pickerViewColor)
+        {
+            return arrOfColor[row]
+        }
         return arrOfNames[row]
     }
-    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: arrOfNames[row], attributes: [NSAttributedStringKey.foregroundColor:colorDarkGraySetting])
+    func pickerView(_ pv: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        if(pv == pickerViewColor)
+        {
+            return NSAttributedString(string: arrOfColor[row], attributes: [NSAttributedStringKey.foregroundColor: colorDarkGraySetting])
+        }
+        return NSAttributedString(string: arrOfNames[row], attributes: [NSAttributedStringKey.foregroundColor: colorDarkGraySetting])
     }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        defaultSpeechLang = row
-        UserDefaults.standard.set(defaultSpeechLang, forKey: "defaultSpeechLang")
+    func pickerView(_ pv: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(pv == pickerViewColor)
+        {
+            defaultColor = row
+            UserDefaults.standard.set(defaultColor, forKey: "defaultColor")
+            doColor()
+        }
+        else
+        {
+            defaultSpeechLang = row
+            UserDefaults.standard.set(defaultSpeechLang, forKey: "defaultSpeechLang")
+        }
     }
     
+    
+    //custom funtions
+    func doColor(){
+        
+        switch defaultColor {
+        case 0: //default pink
+            self.view.backgroundColor = colorLightPink
+        case 1: //white
+            self.view.backgroundColor = UIColor.white
+        case 2:
+            self.view.backgroundColor = colorLightBlue
+        default:
+            self.view.backgroundColor = colorLightPink
+        }
+        
+        for button in self.myButtons {
+            switch defaultColor {
+            case 0: //default pink
+                button.backgroundColor = colorDarkPink
+                button.setTitleColor(colorDarkGraySetting, for: .normal)
+            case 1: //white
+                button.backgroundColor = colorLightGray
+                button.setTitleColor(colorDarkGraySetting, for: .normal)
+            case 2:
+                button.backgroundColor = colorDarkBlue
+                button.setTitleColor(colorLightGray, for: .normal)
+            default:
+                button.backgroundColor = colorDarkPink
+                button.setTitleColor(colorDarkGraySetting, for: .normal)
+            }
+        }
+        
+        for lbl in self.myLables {
+            switch defaultColor {
+            case 0: //default pink
+                lbl.textColor = colorDarkGraySetting
+            case 1: //white
+                lbl.textColor = colorDarkGraySetting
+            case 2:
+                lbl.textColor = colorDarkGraySetting
+            default:
+                lbl.textColor = colorDarkGraySetting
+            }
+        }
+        
+        for case let view as UIView in self.view.subviews {
+                switch defaultColor {
+                case 0: //default pink
+                    view.backgroundColor = colorLightPink
+                case 1: //white
+                    view.backgroundColor = UIColor.white
+                case 2:
+                    view.backgroundColor = colorLightBlue
+                default:
+                    view.backgroundColor = colorLightPink
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

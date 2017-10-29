@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina5_5" orientation="portrait">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,29 +20,39 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk To Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Az2-d6-rZ8">
-                                <rect key="frame" x="58.666666666666657" y="39.999999999999993" width="297" height="115.33333333333331"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="72"/>
-                                <color key="textColor" red="0.85480856895446777" green="0.85495573282241821" blue="0.85479927062988281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="birdy.png" translatesAutoresizingMaskIntoConstraints="NO" id="we4-pa-AsM">
-                                <rect key="frame" x="114" y="165.33333333333337" width="186" height="186"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="we4-pa-AsM" secondAttribute="height" multiplier="1:1" id="x09-oB-Yzz"/>
-                                </constraints>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cqt-X0-TYS">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk To Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Az2-d6-rZ8">
+                                        <rect key="frame" x="235.5" y="0.0" width="297" height="341.5"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="72"/>
+                                        <color key="textColor" red="0.85480856895446777" green="0.85495573282241821" blue="0.85479927062988281" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="birdy" translatesAutoresizingMaskIntoConstraints="NO" id="we4-pa-AsM">
+                                        <rect key="frame" x="213.5" y="341.5" width="341" height="341"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="we4-pa-AsM" secondAttribute="height" multiplier="1:1" id="ZJi-ij-FFm"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Helping Children Communicate!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="0pq-IU-WgZ">
+                                        <rect key="frame" x="232.5" y="682.5" width="303" height="341.5"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="26"/>
+                                        <color key="textColor" red="0.85480856900000002" green="0.85495573280000003" blue="0.85479927060000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Az2-d6-rZ8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cz6-oW-pWM"/>
-                            <constraint firstItem="we4-pa-AsM" firstAttribute="top" secondItem="Az2-d6-rZ8" secondAttribute="bottom" constant="10" id="P9K-mo-occ"/>
-                            <constraint firstItem="we4-pa-AsM" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gKE-c5-fgr"/>
-                            <constraint firstItem="we4-pa-AsM" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.45" id="ts4-0F-bfU"/>
-                            <constraint firstItem="Az2-d6-rZ8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="zoM-63-bEe"/>
+                            <constraint firstItem="cqt-X0-TYS" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="Did-Ra-2Pw"/>
+                            <constraint firstItem="cqt-X0-TYS" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="QPm-3z-cP8"/>
+                            <constraint firstItem="cqt-X0-TYS" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gvb-a5-OXJ"/>
+                            <constraint firstItem="cqt-X0-TYS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="w5Q-Fn-N94"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -54,6 +63,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="birdy.png" width="1024" height="1024"/>
+        <image name="birdy" width="1024" height="1024"/>
     </resources>
 </document>

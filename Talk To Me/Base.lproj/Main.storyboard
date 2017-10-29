@@ -23,7 +23,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Talk_To_Me" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="MainView" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -394,7 +394,7 @@
                                     <constraint firstItem="ZYL-87-eeb" firstAttribute="height" secondItem="eso-0U-o9n" secondAttribute="height" id="eyA-uH-J1H"/>
                                 </constraints>
                             </stackView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Y2-Kz-Pmo">
+                            <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="SettingsView" translatesAutoresizingMaskIntoConstraints="NO" id="5Y2-Kz-Pmo">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="eM6-Qe-tYf">
@@ -403,20 +403,20 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk To Me - Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgT-ky-3eR">
                                                 <rect key="frame" x="53" y="0.0" width="374.5" height="42.5"/>
                                                 <fontDescription key="fontDescription" name="Mathlete-Bulky" family="Mathlete" pointSize="40"/>
-                                                <color key="textColor" red="0.36063647270202637" green="0.3647463321685791" blue="0.364704430103302" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.71187124390742407" green="0.87413166145081211" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ppn-r7-rNh" userLabel="SayStack View">
-                                                <rect key="frame" x="47.5" y="46.5" width="385" height="42"/>
+                                            <stackView contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ppn-r7-rNh" userLabel="SayStack View">
+                                                <rect key="frame" x="67" y="46.5" width="346" height="42"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Say letters when pressed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Yh-jC-mWw">
-                                                        <rect key="frame" x="0.0" y="5.5" width="293" height="30.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Say letters when typed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Yh-jC-mWw">
+                                                        <rect key="frame" x="0.0" y="5.5" width="266" height="30.5"/>
                                                         <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="26"/>
                                                         <color key="textColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Big-2R-Mvg">
-                                                        <rect key="frame" x="313" y="5.5" width="74" height="31"/>
+                                                        <rect key="frame" x="274" y="5.5" width="74" height="31"/>
                                                         <connections>
                                                             <action selector="switchSayLetterChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="hlP-uZ-YCd"/>
                                                         </connections>
@@ -457,19 +457,22 @@
                                                     </slider>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M6K-bZ-DeY" userLabel="PickStack View">
-                                                <rect key="frame" x="80" y="185" width="320" height="42.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M6K-bZ-DeY" userLabel="PickStack View">
+                                                <rect key="frame" x="0.0" y="185" width="480" height="42.5"/>
                                                 <subviews>
-                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0C5-Dc-fcc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
+                                                    <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="0C5-Dc-fcc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="42.5"/>
+                                                    </pickerView>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xp-Iz-q6h">
+                                                        <rect key="frame" x="245" y="0.0" width="235" height="42.5"/>
                                                     </pickerView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ob5-PD-UyU">
-                                                <rect key="frame" x="146.5" y="231.5" width="187" height="42"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ob5-PD-UyU">
+                                                <rect key="frame" x="91" y="231.5" width="298" height="42"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCx-Pr-mbq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="42"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="42"/>
                                                         <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="12"/>
                                                         <state key="normal" title="defaults">
                                                             <color key="titleColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -479,7 +482,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdd-k5-HwI">
-                                                        <rect key="frame" x="43" y="0.0" width="144" height="42"/>
+                                                        <rect key="frame" x="154" y="0.0" width="144" height="42"/>
                                                         <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="40"/>
                                                         <state key="normal" title="  SAVE  ">
                                                             <color key="titleColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -549,11 +552,47 @@
                     <connections>
                         <outlet property="btnDelete" destination="mcH-jS-2Yg" id="P2r-qY-aRX"/>
                         <outlet property="pickerView" destination="0C5-Dc-fcc" id="NXf-xM-9rr"/>
+                        <outlet property="pickerViewColor" destination="3Xp-Iz-q6h" id="qD4-wW-cez"/>
                         <outlet property="settingsView" destination="5Y2-Kz-Pmo" id="Csl-QC-CbO"/>
                         <outlet property="sliderPitch" destination="Q03-Cc-XsR" id="uL2-eG-ypO"/>
                         <outlet property="sliderRate" destination="Mzs-GX-KKx" id="bYF-lB-aNw"/>
                         <outlet property="switchSayLetter" destination="Big-2R-Mvg" id="pti-6i-cG3"/>
                         <outlet property="txtText" destination="kdZ-Si-BdE" id="gX9-ed-9GX"/>
+                        <outletCollection property="myButtons" destination="0xx-Tp-l8W" collectionClass="NSMutableArray" id="SmG-ZA-d0R"/>
+                        <outletCollection property="myButtons" destination="kEG-dV-NgX" collectionClass="NSMutableArray" id="gYp-Qi-5HB"/>
+                        <outletCollection property="myButtons" destination="tub-FC-YVN" collectionClass="NSMutableArray" id="RBi-87-v91"/>
+                        <outletCollection property="myButtons" destination="7a2-Zj-MeI" collectionClass="NSMutableArray" id="GWV-jG-LLS"/>
+                        <outletCollection property="myButtons" destination="RAZ-VU-Okj" collectionClass="NSMutableArray" id="ree-Jj-Bjr"/>
+                        <outletCollection property="myButtons" destination="1AL-rT-EN2" collectionClass="NSMutableArray" id="GcR-hs-bZq"/>
+                        <outletCollection property="myButtons" destination="I9T-LW-NJ1" collectionClass="NSMutableArray" id="drX-0Y-m2k"/>
+                        <outletCollection property="myButtons" destination="LnG-kz-jAa" collectionClass="NSMutableArray" id="TTI-8C-djG"/>
+                        <outletCollection property="myButtons" destination="dQZ-f4-73N" collectionClass="NSMutableArray" id="Cib-RS-Zqm"/>
+                        <outletCollection property="myButtons" destination="Fuz-IH-Ev3" collectionClass="NSMutableArray" id="Jat-qf-ZsT"/>
+                        <outletCollection property="myButtons" destination="vlf-Z3-EVg" collectionClass="NSMutableArray" id="pP7-QM-mt3"/>
+                        <outletCollection property="myButtons" destination="255-SJ-jk2" collectionClass="NSMutableArray" id="XkG-Zc-p5D"/>
+                        <outletCollection property="myButtons" destination="ZYL-87-eeb" collectionClass="NSMutableArray" id="BRh-8Q-iRi"/>
+                        <outletCollection property="myButtons" destination="eso-0U-o9n" collectionClass="NSMutableArray" id="d5x-2F-kHS"/>
+                        <outletCollection property="myButtons" destination="lUP-LH-d9C" collectionClass="NSMutableArray" id="2ze-KP-qPt"/>
+                        <outletCollection property="myButtons" destination="evm-UC-4xr" collectionClass="NSMutableArray" id="6s6-Sy-cPc"/>
+                        <outletCollection property="myButtons" destination="YRK-Yi-Tpo" collectionClass="NSMutableArray" id="tOG-46-Px0"/>
+                        <outletCollection property="myButtons" destination="oaK-ia-JXn" collectionClass="NSMutableArray" id="uWG-IX-oYg"/>
+                        <outletCollection property="myButtons" destination="Dde-Zb-QDC" collectionClass="NSMutableArray" id="fdr-n0-DuI"/>
+                        <outletCollection property="myButtons" destination="fA5-50-YMA" collectionClass="NSMutableArray" id="cnD-4e-x1O"/>
+                        <outletCollection property="myButtons" destination="beg-b4-xgG" collectionClass="NSMutableArray" id="g9M-rO-MXX"/>
+                        <outletCollection property="myButtons" destination="gz0-Mm-PIH" collectionClass="NSMutableArray" id="nMy-To-QWu"/>
+                        <outletCollection property="myButtons" destination="K8n-Os-s4r" collectionClass="NSMutableArray" id="r4f-22-jZ4"/>
+                        <outletCollection property="myButtons" destination="BOG-hS-hmF" collectionClass="NSMutableArray" id="XvV-j7-CJu"/>
+                        <outletCollection property="myButtons" destination="4wf-cw-OdO" collectionClass="NSMutableArray" id="2rb-XA-L0s"/>
+                        <outletCollection property="myButtons" destination="xag-W3-l3p" collectionClass="NSMutableArray" id="g5s-np-99A"/>
+                        <outletCollection property="myButtons" destination="ET7-nw-vyt" collectionClass="NSMutableArray" id="vQK-aY-aYB"/>
+                        <outletCollection property="myButtons" destination="VLy-pD-xVJ" collectionClass="NSMutableArray" id="BCI-2U-WDa"/>
+                        <outletCollection property="myButtons" destination="OGK-Nj-U44" collectionClass="NSMutableArray" id="bEG-bl-GDJ"/>
+                        <outletCollection property="myButtons" destination="Kdd-k5-HwI" collectionClass="NSMutableArray" id="HKc-2X-DrL"/>
+                        <outletCollection property="myButtons" destination="RCx-Pr-mbq" collectionClass="NSMutableArray" id="J6g-IQ-nm7"/>
+                        <outletCollection property="myLables" destination="kgT-ky-3eR" collectionClass="NSMutableArray" id="oVe-it-37i"/>
+                        <outletCollection property="myLables" destination="1Yh-jC-mWw" collectionClass="NSMutableArray" id="q8e-hQ-YzS"/>
+                        <outletCollection property="myLables" destination="qf6-e8-Yoq" collectionClass="NSMutableArray" id="PC6-5P-mdD"/>
+                        <outletCollection property="myLables" destination="Egu-mR-dVq" collectionClass="NSMutableArray" id="i4c-TP-u6i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
