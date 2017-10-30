@@ -10,14 +10,17 @@ import UIKit
 import AVFoundation
 import QuartzCore
 
-var defaultSpeechRate = AVSpeechUtteranceDefaultSpeechRate
+//Version 1.0.0
+var defaultSpeechRate: Float = AVSpeechUtteranceDefaultSpeechRate
 var defaultSpeechPitch: Float = 1.0
-var defaultSpeechLang = 3
-var defaultColor = 1
-var speekLetter = true
+var defaultSpeechLang: Int = 3
+var speekLetter: Bool = true
+//Version 1.0.1
+var defaultColor: Int = 1
+var currentBuildVersion: Int = 0
 
 let arrOfLang = ["en-AU", "en-GB", "en-IE", "en-US", "en-ZA"]
-let arrOfNames = ["Karen", "Daniel", "moria", "Samantha", "Tessa"]
+let arrOfNames = ["Karen", "Daniel", "Moria", "Samantha", "Tessa"]
 let arrOfColor = ["Pink", "White", "Blue"]
 
 let colorDarkGraySetting = UIColor(red: 0.36127328110000001, green: 0.36485024420000001, blue: 0.36485024420000001, alpha: 1)
@@ -26,10 +29,6 @@ let colorDarkPink = UIColor(red: 0.93874037269999999, green: 0.68106192350000005
 let colorLightGray = UIColor(red: 0.85480856895446777, green: 0.85495573282241821, blue: 0.85479927062988281, alpha: 1)
 let colorDarkBlue = UIColor(red: 0.37248749899936873, green: 0.58042447728129687, blue: 0.85495573280000003, alpha: 1)
 let colorLightBlue = UIColor(red: 0.71187124390742407, green: 0.87413166145081211, blue: 1, alpha: 1)
-    
-
-
-
 
 class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource{
     
@@ -65,27 +64,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         sliderPitch.minimumValue = 0.50
         sliderPitch.maximumValue = 2.0
         
-        //Check for user Defaults
-        let result = UserDefaults.standard.value(forKey: "speekLetter")
-        if (result == nil)
-        {
-            UserDefaults.standard.set(speekLetter, forKey: "speekLetter")
-            UserDefaults.standard.set(defaultSpeechRate, forKey: "defaultSpeechRate")
-            UserDefaults.standard.set(defaultSpeechPitch, forKey: "defaultSpeechPitch")
-            UserDefaults.standard.set(defaultSpeechLang, forKey: "defaultSpeechLang")
-            UserDefaults.standard.set(defaultColor, forKey: "defaultColor")
-            
-        }
-        else
-        {
-            speekLetter = UserDefaults.standard.value(forKey: "speekLetter") as! Bool
-            defaultSpeechPitch = UserDefaults.standard.value(forKey: "defaultSpeechPitch") as! Float
-            defaultSpeechRate = UserDefaults.standard.value(forKey: "defaultSpeechRate") as! Float
-            defaultSpeechLang = UserDefaults.standard.value(forKey: "defaultSpeechLang") as! Int
-            defaultColor = UserDefaults.standard.value(forKey: "defaultColor") as! Int
-        }
+        // Do Version Check and set defaults up
+        versionCheck()
         
-        //Setting up the defauts:
+        // Get defaults
+        speekLetter = UserDefaults.standard.value(forKey: "speekLetter") as! Bool
+        defaultSpeechPitch = UserDefaults.standard.value(forKey: "defaultSpeechPitch") as! Float
+        defaultSpeechRate = UserDefaults.standard.value(forKey: "defaultSpeechRate") as! Float
+        defaultSpeechLang = UserDefaults.standard.value(forKey: "defaultSpeechLang") as! Int
+        defaultColor = UserDefaults.standard.value(forKey: "defaultColor") as! Int
+        
+        //Setting up the defauts within the UI:
         if(speekLetter)
         {
             switchSayLetter.isOn = true
@@ -94,10 +83,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         {
             switchSayLetter.isOn = false
         }
-        
         sliderPitch.value = defaultSpeechPitch
         sliderRate.value = defaultSpeechRate
-        
         pickerView.selectRow(defaultSpeechLang, inComponent: 0, animated: true)
         pickerViewColor.selectRow(defaultColor, inComponent: 0, animated: true)
         
@@ -127,7 +114,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         let txt = txtText.text ?? ""
         if(txt.count > 0)
         {
-            //txtText.text = txt.substring(to: txt.index(before: txt.endIndex))
             txtText.text = String(txt.dropLast(1))
         }
     }
@@ -314,6 +300,45 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
                 default:
                     view.backgroundColor = colorLightPink
             }
+        }
+    }
+    
+    
+    func versionCheck(){
+//speekLetter was created in version 1.0.0
+        let result = UserDefaults.standard.value(forKey: "speekLetter")
+        if (result != nil)
+        {
+            //We know they are min version 1.
+            currentBuildVersion = 1
+            //currentBuildVersion was created in version 1.0.1
+            let buildVersion = UserDefaults.standard.value(forKey: "currentBuildVersion")
+            if (buildVersion != nil)
+            {
+                currentBuildVersion = buildVersion as! Int
+            }
+        }
+        
+//Set the Default Values if needed!
+        switch currentBuildVersion {
+        case 0:
+//New App Install.  Set all the defaults
+            currentBuildVersion = 2
+            UserDefaults.standard.set(speekLetter, forKey: "speekLetter")
+            UserDefaults.standard.set(defaultSpeechRate, forKey: "defaultSpeechRate")
+            UserDefaults.standard.set(defaultSpeechPitch, forKey: "defaultSpeechPitch")
+            UserDefaults.standard.set(defaultSpeechLang, forKey: "defaultSpeechLang")
+            UserDefaults.standard.set(defaultColor, forKey: "defaultColor")
+            UserDefaults.standard.set(currentBuildVersion, forKey: "currentBuildVersion")
+        case 1:
+// First time upgrade from version 1.0.0.  Add defaults for Version 1.0.1 - Build 2
+            currentBuildVersion = 2
+            UserDefaults.standard.set(defaultColor, forKey: "defaultColor")
+            UserDefaults.standard.set(currentBuildVersion, forKey: "currentBuildVersion")
+        //case 2:
+        default:
+            //No upgrade required.
+            break;
         }
     }
     
