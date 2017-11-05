@@ -103,7 +103,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         else
         {
             txtText.text = txt + newTxt
-            if(speekLetter)
+            if(speekLetter && newTxt != ".")
             {
                 tts(text: newTxt)
             }
@@ -174,7 +174,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     }
     
     @IBAction func txtTouch(_ sender: Any) {
-        if((txtText.text ?? "").count > 0)
+        if((txtText.text ?? "").count > 0 && txtText.text ?? "" != ".")
         {
             print("Say stuff!")
             tts(text: (txtText.text ?? ""))

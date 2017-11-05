@@ -6,6 +6,21 @@
 //  Copyright © 2017 Justin Edwards. All rights reserved.
 //
 
+/*
+ 
+ Version 1.0.0 - Build 1
+ * First version in appstore only pink color
+ 
+ Version 1.0.1 - Build 2
+ * bug fixes
+ * color option
+ * upgrade stuff
+ 
+ Version 1.0.2 - Build 3
+ * . bug fix (no longer full stop when pressed)
+ 
+ */
+
 import UIKit
 
 @UIApplicationMain
