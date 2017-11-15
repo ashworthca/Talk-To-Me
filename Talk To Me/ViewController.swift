@@ -15,9 +15,13 @@ var defaultSpeechRate: Float = AVSpeechUtteranceDefaultSpeechRate
 var defaultSpeechPitch: Float = 1.0
 var defaultSpeechLang: Int = 3
 var speekLetter: Bool = true
+
 //Version 1.0.1
 var defaultColor: Int = 1
 var currentBuildVersion: Int = 0
+
+//version 1.0.2
+var defaultMuliDelete: Bool = true
 
 let arrOfLang = ["en-AU", "en-GB", "en-IE", "en-US", "en-ZA"]
 let arrOfNames = ["Karen", "Daniel", "Moria", "Samantha", "Tessa"]
@@ -43,6 +47,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     @IBOutlet weak var sliderRate: UISlider!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var pickerViewColor: UIPickerView!
+    @IBOutlet weak var switchMuliDelete: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,20 +78,23 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         defaultSpeechRate = UserDefaults.standard.value(forKey: "defaultSpeechRate") as! Float
         defaultSpeechLang = UserDefaults.standard.value(forKey: "defaultSpeechLang") as! Int
         defaultColor = UserDefaults.standard.value(forKey: "defaultColor") as! Int
+        defaultMuliDelete = UserDefaults.standard.value(forKey: "defaultMuliDelete") as! Bool
         
         //Setting up the defauts within the UI:
-        if(speekLetter)
-        {
+        if(speekLetter) {
             switchSayLetter.isOn = true
-        }
-        else
-        {
+        } else {
             switchSayLetter.isOn = false
         }
         sliderPitch.value = defaultSpeechPitch
         sliderRate.value = defaultSpeechRate
         pickerView.selectRow(defaultSpeechLang, inComponent: 0, animated: true)
         pickerViewColor.selectRow(defaultColor, inComponent: 0, animated: true)
+        if(defaultMuliDelete) {
+            switchMuliDelete.isOn = true
+        } else {
+            switchMuliDelete.isOn = false
+        }
         
         //Set the colors
         doColor()
@@ -128,12 +136,15 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         defaultSpeechLang = 3
         defaultColor = 1
         speekLetter = true
+        defaultMuliDelete = true
         
         UserDefaults.standard.set(speekLetter, forKey: "speekLetter")
         UserDefaults.standard.set(defaultSpeechRate, forKey: "defaultSpeechRate")
         UserDefaults.standard.set(defaultSpeechPitch, forKey: "defaultSpeechPitch")
         UserDefaults.standard.set(defaultSpeechLang, forKey: "defaultSpeechLang")
         UserDefaults.standard.set(defaultColor, forKey: "defaultColor")
+        UserDefaults.standard.set(defaultMuliDelete, forKey: "defaultMuliDelete")
+        
         
         settingsView.isHidden = true
         
@@ -142,6 +153,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         sliderRate.value = defaultSpeechRate
         pickerView.selectRow(defaultSpeechLang, inComponent: 0, animated: true)
         pickerViewColor.selectRow(defaultColor, inComponent: 0, animated: true)
+        switchMuliDelete.isOn = true
         
         doColor()
     }
@@ -151,26 +163,28 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     }
     
     @IBAction func switchSayLetterChanged(_ sender: Any) {
-        if(switchSayLetter.isOn)
-        {
+        if(switchSayLetter.isOn) {
             speekLetter = true
-        }
-        else
-        {
+        } else {
             speekLetter = false
-            
         }
         UserDefaults.standard.set(speekLetter, forKey: "speekLetter")
     }
     
+    @IBAction func switchMuliDeleteChanged(_ sender: Any) {
+        if(switchMuliDelete.isOn) {
+            defaultMuliDelete = true
+        } else {
+            defaultMuliDelete = false
+        }
+        UserDefaults.standard.set(defaultMuliDelete, forKey: "defaultMuliDelete")
+    }
+    
     @IBAction func sliderValueChanged(_ sender: UISlider) {
-        
         defaultSpeechRate = sliderRate.value
         defaultSpeechPitch = sliderPitch.value
-        
         UserDefaults.standard.set(defaultSpeechRate, forKey: "defaultSpeechRate")
         UserDefaults.standard.set(defaultSpeechPitch, forKey: "defaultSpeechPitch")
-        
     }
     
     @IBAction func txtTouch(_ sender: Any) {
@@ -184,7 +198,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     // Delete everything if they tap the delete key 4 times
     @objc func multipleTap(_ sender: UIButton, event: UIEvent) {
         let touch: UITouch = event.allTouches!.first!
-        if (touch.tapCount == 4) {
+        if (touch.tapCount > 3 && defaultMuliDelete == true) {
             txtText.text = ""
         }
     }
@@ -209,6 +223,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
+    
     func pickerView(_ pv: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if(pv == pickerViewColor)
         {
@@ -216,6 +231,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         }
         return arrOfLang.count
     }
+    
     func pickerView(_ pv: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if(pv == pickerViewColor)
         {
@@ -223,6 +239,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         }
         return arrOfNames[row]
     }
+    
     func pickerView(_ pv: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if(pv == pickerViewColor)
         {
@@ -230,6 +247,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         }
         return NSAttributedString(string: arrOfNames[row], attributes: [NSAttributedStringKey.foregroundColor: colorDarkGraySetting])
     }
+    
     func pickerView(_ pv: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(pv == pickerViewColor)
         {
@@ -244,10 +262,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         }
     }
     
-    
     //custom funtions
     func doColor(){
-        
         switch defaultColor {
         case 0: //default pink
             self.view.backgroundColor = colorLightPink
@@ -303,7 +319,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         }
     }
     
-    
     func versionCheck(){
 //speekLetter was created in version 1.0.0
         let result = UserDefaults.standard.value(forKey: "speekLetter")
@@ -323,19 +338,25 @@ class ViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegat
         switch currentBuildVersion {
         case 0:
 //New App Install.  Set all the defaults
-            currentBuildVersion = 2
+            currentBuildVersion = 3
             UserDefaults.standard.set(speekLetter, forKey: "speekLetter")
             UserDefaults.standard.set(defaultSpeechRate, forKey: "defaultSpeechRate")
             UserDefaults.standard.set(defaultSpeechPitch, forKey: "defaultSpeechPitch")
             UserDefaults.standard.set(defaultSpeechLang, forKey: "defaultSpeechLang")
             UserDefaults.standard.set(defaultColor, forKey: "defaultColor")
             UserDefaults.standard.set(currentBuildVersion, forKey: "currentBuildVersion")
+            UserDefaults.standard.set(defaultMuliDelete, forKey: "defaultMuliDelete")
         case 1:
 // First time upgrade from version 1.0.0.  Add defaults for Version 1.0.1 - Build 2
             currentBuildVersion = 2
             UserDefaults.standard.set(defaultColor, forKey: "defaultColor")
             UserDefaults.standard.set(currentBuildVersion, forKey: "currentBuildVersion")
-        //case 2:
+        case 2:
+            currentBuildVersion = 3
+            //defaultMuliDelete default = true
+            UserDefaults.standard.set(defaultMuliDelete, forKey: "defaultMuliDelete")
+            UserDefaults.standard.set(currentBuildVersion, forKey: "currentBuildVersion")
+        //case 3:
         default:
             //No upgrade required.
             break;

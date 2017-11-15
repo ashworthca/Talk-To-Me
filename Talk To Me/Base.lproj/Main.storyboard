@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina3_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -31,7 +31,7 @@
                                 <rect key="frame" x="5" y="5" width="470" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="kdZ-Si-BdE">
-                                        <rect key="frame" x="0.0" y="0.0" width="425" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="425.5" height="50"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="50"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -40,7 +40,7 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcH-jS-2Yg">
-                                        <rect key="frame" x="425" y="0.0" width="45" height="50"/>
+                                        <rect key="frame" x="425.5" y="0.0" width="44.5" height="50"/>
                                         <state key="normal" backgroundImage="x.png"/>
                                         <connections>
                                             <action selector="btnDeleteWithButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O4h-qP-0ju"/>
@@ -401,39 +401,57 @@
                                         <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk To Me - Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgT-ky-3eR">
-                                                <rect key="frame" x="53" y="0.0" width="374.5" height="42.5"/>
-                                                <fontDescription key="fontDescription" name="Mathlete-Bulky" family="Mathlete" pointSize="40"/>
+                                                <rect key="frame" x="99.5" y="0.0" width="281" height="36.5"/>
+                                                <fontDescription key="fontDescription" name="Mathlete-Bulky" family="Mathlete" pointSize="30"/>
                                                 <color key="textColor" red="0.71187124390742407" green="0.87413166145081211" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ppn-r7-rNh" userLabel="SayStack View">
-                                                <rect key="frame" x="67" y="46.5" width="346" height="42"/>
+                                                <rect key="frame" x="98" y="40.5" width="284.5" height="36.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Say letters when typed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="1Yh-jC-mWw">
-                                                        <rect key="frame" x="0.0" y="5.5" width="266" height="30.5"/>
-                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="26"/>
+                                                        <rect key="frame" x="0.5" y="6.5" width="204.5" height="23.5"/>
+                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="20"/>
                                                         <color key="textColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Big-2R-Mvg">
-                                                        <rect key="frame" x="274" y="5.5" width="74" height="31"/>
+                                                        <rect key="frame" x="213" y="3" width="74" height="31"/>
                                                         <connections>
                                                             <action selector="switchSayLetterChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="hlP-uZ-YCd"/>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
+                                            <stackView contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="P9u-zJ-qd7" userLabel="MuliDelete View">
+                                                <rect key="frame" x="158.5" y="81" width="163.5" height="36.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Multi Delete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="BlD-dk-Mv1">
+                                                        <rect key="frame" x="0.0" y="6.5" width="106.5" height="23.5"/>
+                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="20"/>
+                                                        <color key="textColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hpA-Nc-mrt">
+                                                        <rect key="frame" x="114.5" y="3" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="switchMuliDeleteChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="GJS-Lv-KEp"/>
+                                                            <action selector="switchSayLetterChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="asp-co-xBg"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ccN-ns-iAo" userLabel="PitchStack View">
-                                                <rect key="frame" x="53.5" y="92.5" width="373" height="42.5"/>
+                                                <rect key="frame" x="69.5" y="121.5" width="341.5" height="36.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice Pitch:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qf6-e8-Yoq">
-                                                        <rect key="frame" x="0.0" y="6" width="137" height="30.5"/>
-                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="26"/>
+                                                        <rect key="frame" x="0.0" y="6.5" width="105.5" height="23.5"/>
+                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="20"/>
                                                         <color key="textColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q03-Cc-XsR">
-                                                        <rect key="frame" x="155" y="6" width="220" height="31"/>
+                                                        <rect key="frame" x="123.5" y="3.5" width="220" height="31"/>
                                                         <connections>
                                                             <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="wb3-Gv-ZXV"/>
                                                         </connections>
@@ -441,16 +459,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pgK-7v-rwI" userLabel="RateStack View">
-                                                <rect key="frame" x="56.5" y="139" width="367.5" height="42"/>
+                                                <rect key="frame" x="71.5" y="162" width="337.5" height="36.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Voice Rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Egu-mR-dVq">
-                                                        <rect key="frame" x="0.0" y="6" width="131.5" height="30.5"/>
-                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="26"/>
+                                                        <rect key="frame" x="0.0" y="6.5" width="101.5" height="23.5"/>
+                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="20"/>
                                                         <color key="textColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mzs-GX-KKx">
-                                                        <rect key="frame" x="149.5" y="6" width="220" height="31"/>
+                                                        <rect key="frame" x="119.5" y="3.5" width="220" height="31"/>
                                                         <connections>
                                                             <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Lz5-DJ-mSz"/>
                                                         </connections>
@@ -458,21 +476,21 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M6K-bZ-DeY" userLabel="PickStack View">
-                                                <rect key="frame" x="0.0" y="185" width="480" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="202.5" width="480" height="36.5"/>
                                                 <subviews>
                                                     <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="0C5-Dc-fcc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="42.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="235" height="36.5"/>
                                                     </pickerView>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xp-Iz-q6h">
-                                                        <rect key="frame" x="245" y="0.0" width="235" height="42.5"/>
+                                                        <rect key="frame" x="245" y="0.0" width="235" height="36.5"/>
                                                     </pickerView>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ob5-PD-UyU">
-                                                <rect key="frame" x="91" y="231.5" width="298" height="42"/>
+                                                <rect key="frame" x="127" y="243" width="226" height="36.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCx-Pr-mbq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="144" height="42"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="108" height="36.5"/>
                                                         <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="12"/>
                                                         <state key="normal" title="defaults">
                                                             <color key="titleColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -482,8 +500,8 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdd-k5-HwI">
-                                                        <rect key="frame" x="154" y="0.0" width="144" height="42"/>
-                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="40"/>
+                                                        <rect key="frame" x="118" y="0.0" width="108" height="36.5"/>
+                                                        <fontDescription key="fontDescription" name="DidactGothic-Regular" family="Didact Gothic" pointSize="30"/>
                                                         <state key="normal" title="  SAVE  ">
                                                             <color key="titleColor" red="0.36127328110000001" green="0.36485024420000001" blue="0.36485024420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -494,7 +512,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOG-C8-SOV">
-                                                <rect key="frame" x="238.5" y="277.5" width="3.5" height="42.5"/>
+                                                <rect key="frame" x="238.5" y="283.5" width="3.5" height="36.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -556,6 +574,7 @@
                         <outlet property="settingsView" destination="5Y2-Kz-Pmo" id="Csl-QC-CbO"/>
                         <outlet property="sliderPitch" destination="Q03-Cc-XsR" id="uL2-eG-ypO"/>
                         <outlet property="sliderRate" destination="Mzs-GX-KKx" id="bYF-lB-aNw"/>
+                        <outlet property="switchMuliDelete" destination="hpA-Nc-mrt" id="hji-Rf-dFb"/>
                         <outlet property="switchSayLetter" destination="Big-2R-Mvg" id="pti-6i-cG3"/>
                         <outlet property="txtText" destination="kdZ-Si-BdE" id="gX9-ed-9GX"/>
                         <outletCollection property="myButtons" destination="0xx-Tp-l8W" collectionClass="NSMutableArray" id="SmG-ZA-d0R"/>

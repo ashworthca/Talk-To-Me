@@ -18,6 +18,7 @@
  
  Version 1.0.2 - Build 3
  * . bug fix (no longer full stop when pressed)
+ * added defaultMuliDelete switch in options
  
  */
 
